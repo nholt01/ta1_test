@@ -1,8 +1,6 @@
 name: basic CI setup
 
-on:
-	push:
-	pull-request:
+on: push
 
 jobs:
 	build-and-test:
