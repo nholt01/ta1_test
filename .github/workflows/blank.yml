@@ -1,0 +1,21 @@
+name: basic CI setup
+
+on:
+	push
+
+jobs:
+	build-and-test:
+		name: Rust project - latest
+		runs-on: ubuntu-latest
+		
+		steps:
+			- uses: actions/checkout@v3
+			
+			- name: download stable rust toolchain
+			  uses: actions-rs/toolchain@v1.0.6
+				
+			- name: build package
+			  run: cargo build --release
+				
+			- name: run unit tests + integration tests
+			  run: cargo test
