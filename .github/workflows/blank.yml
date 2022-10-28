@@ -1,7 +1,6 @@
 name: Cargo Build & Test
 
 on:
-  push:
   pull_request:
 
 env: 
@@ -36,3 +35,13 @@ jobs:
       - run: rustup update stable && rustup default stable
       - run: rustup component add clippy
       - run: cargo clippy
+
+  format:
+    name: Formating
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: rustup update stable && rustup default stable
+      - run: rustup component add rustfmt
+      - run: cargo fmt --all -- --check
