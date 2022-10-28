@@ -36,6 +36,6 @@ mod tests {
 
         assert_eq!(custom_trip.depart, 2_f32);
         assert_eq!(custom_trip.from, String::from("home location"));
-        assert_eq!(custom_trip.to, String::from("wrong location"));
+        assert_ne!(custom_trip.to, String::from("wrong location"));
     }
 }
